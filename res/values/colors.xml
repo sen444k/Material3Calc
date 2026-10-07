@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="bg">#131314</color>
+    <color name="text_main">#E3E3E3</color>
+    <color name="text_result">#6DD58C</color>
+    <color name="btn_digit">#333537</color>
+    <color name="btn_digit_pressed">#47494C</color>
+    <color name="btn_op">#004A77</color>
+    <color name="btn_op_pressed">#005C94</color>
+    <color name="btn_op_text">#C2E7FF</color>
+    <color name="btn_ac">#0842A0</color>
+    <color name="btn_ac_pressed">#0A52C7</color>
+    <color name="btn_ac_text">#D3E3FD</color>
+    <color name="btn_eq">#6DD58C</color>
+    <color name="btn_eq_pressed">#8BE3A6</color>
+    <color name="btn_eq_text">#0A3818</color>
+</resources>

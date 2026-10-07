@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Размеры (weight) взяты в пикселях со скриншота 480x854, поэтому пропорции совпадают на любом экране -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/bg"
+    android:orientation="vertical">
+
+    <!-- Верхняя панель: история и меню -->
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="44"
+        android:orientation="horizontal">
+        <com.senz.calc.IconView
+            android:id="@+id/iconHistory"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="90"
+            android:clickable="true"
+            android:tag="0" />
+        <View android:layout_width="0dp" android:layout_height="fill_parent" android:layout_weight="328" />
+        <com.senz.calc.IconView
+            android:id="@+id/iconMore"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="62"
+            android:clickable="true"
+            android:tag="1" />
+    </LinearLayout>
+
+    <!-- Нижний слой: история. Верхний слой: шторка (дисплей и клавиатура) -->
+    <com.senz.calc.SheetHost
+        android:id="@+id/host"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="698">
+
+        <ListView
+            android:id="@+id/historyList"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:cacheColorHint="#00000000"
+            android:clipToPadding="false"
+            android:divider="@null"
+            android:dividerHeight="0dp"
+            android:fadingEdge="none"
+            android:listSelector="#00000000"
+            android:scrollbars="none"
+            android:stackFromBottom="true"
+            android:visibility="invisible" />
+
+        <LinearLayout
+            android:id="@+id/sheet"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="@color/bg"
+            android:orientation="vertical">
+
+            <!-- Дисплей: строки прокручиваются пальцем, позиции выставляет MainActivity -->
+            <FrameLayout
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:layout_weight="201">
+
+                <com.senz.calc.HistoryHeader
+                    android:id="@+id/header"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:clickable="true" />
+
+                <com.senz.calc.ExprScrollView
+                    android:id="@+id/svExpression"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top">
+
+                    <TextView
+                        android:id="@+id/tvExpression"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:includeFontPadding="false"
+                        android:singleLine="true"
+                        android:textColor="@color/text_main"
+                        android:textSize="44sp" />
+                </com.senz.calc.ExprScrollView>
+
+                <com.senz.calc.ExprScrollView
+                    android:id="@+id/svResult"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top">
+
+                    <TextView
+                        android:id="@+id/tvResult"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:includeFontPadding="false"
+                        android:singleLine="true"
+                        android:textColor="@color/text_result"
+                        android:textSize="28sp" />
+                </com.senz.calc.ExprScrollView>
+            </FrameLayout>
+
+    <!-- Стрелки раскрытия -->
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="41"
+        android:orientation="horizontal">
+        <com.senz.calc.IconView
+            android:id="@+id/iconExpand"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="96"
+            android:clickable="true"
+            android:tag="2" />
+        <View android:layout_width="0dp" android:layout_height="fill_parent" android:layout_weight="384" />
+    </LinearLayout>
+
+    <View android:layout_width="fill_parent" android:layout_height="0dp" android:layout_weight="18" />
+
+    <!-- Клавиатура: все кнопки рисует PadView (ripple и раскрытие инженерной панели) -->
+    <com.senz.calc.PadView
+        android:id="@+id/pad"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="435" />
+
+    <View android:layout_width="fill_parent" android:layout_height="0dp" android:layout_weight="3" />
+        </LinearLayout>
+    </com.senz.calc.SheetHost>
+
+</LinearLayout>

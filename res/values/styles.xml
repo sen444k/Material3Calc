@@ -1,0 +1,10 @@
+<resources>
+
+    <style name="AppBaseTheme" parent="android:Theme.NoTitleBar">
+        <item name="android:windowBackground">@color/bg</item>
+    </style>
+
+    <style name="AppTheme" parent="AppBaseTheme">
+    </style>
+
+</resources>
